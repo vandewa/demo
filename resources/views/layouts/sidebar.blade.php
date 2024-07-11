@@ -210,12 +210,12 @@
                                               <p>Kelas</p>
                                           </a>
                                       </li>
-                                      <li class="nav-item">
+                                      {{-- <li class="nav-item">
                                           <a href="#" class="nav-link">
                                               <i class="ml-2 far fa-circle nav-icon"></i>
                                               <p>Referal</p>
                                           </a>
-                                      </li>
+                                      </li> --}}
                                       <li class="nav-item">
                                           <a href="{{ route('admin.pengguna') }}"
                                               class="nav-link  {{ Request::segment(2) == 'pengguna' ? 'active' : '' }}">
