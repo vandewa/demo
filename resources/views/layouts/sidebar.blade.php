@@ -211,7 +211,7 @@
                                           </a>
                                       </li>
                                       <li class="nav-item">
-                                          <a href="../examples/e-commerce.html" class="nav-link">
+                                          <a href="#" class="nav-link">
                                               <i class="ml-2 far fa-circle nav-icon"></i>
                                               <p>Referal</p>
                                           </a>

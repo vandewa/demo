@@ -15,7 +15,7 @@ class Layanan extends Component
 
     use WithFileUploads;
 
-    public $idHapus, $edit = false, $idnya, $path;
+    public $idHapus, $edit = false, $idnya, $photo;
 
     public $form = [
         'name' => null,
@@ -52,20 +52,19 @@ class Layanan extends Component
             icon: 'success',
           })
         JS);
+
+        $this->reset();
     }
 
     public function store()
     {
-
-
-        if($this->form['path']) {
+        if ($this->photo) {
             $this->validate([
-                'path' => 'image|max:2000', // 2MB Max
+                'photo' => 'image|max:2000', // 2MB Max
             ]);
-            $this->form[''] = $this->path->store('layanan', 'public');
+
+            $this->form['path'] = $this->photo->store('layanan', 'public');
         }
-
-
 
         DemoLayanan::create($this->form);
     }
@@ -105,6 +104,10 @@ class Layanan extends Component
 
     public function storeUpdate()
     {
+        if ($this->photo) {
+            $this->form['path'] = $this->photo->store('layanan', 'public');
+        }
+
         DemoLayanan::find($this->idHapus)->update($this->form);
         $this->reset();
         $this->edit = false;

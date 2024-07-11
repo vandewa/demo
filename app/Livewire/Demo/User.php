@@ -54,7 +54,7 @@ class User extends Component
           })
         JS);
 
-        return redirect(route('master.user.index'));
+        return redirect(route('admin.user.user-index'));
     }
 
     public function store()

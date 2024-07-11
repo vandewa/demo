@@ -50,13 +50,19 @@
                                                                                 <label for=""
                                                                                     class="col-sm-3 col-form-label">Kategori</label>
                                                                                 <div class="col-md-9">
-                                                                                  <select name="" class="form-control" id="" wire:model='form.kategori_id'>
-                                                                                    <option value="">Pilih Kategori</option>
-                                                                                    @foreach ($kategori as $item)
-                                                                                    <option value="{{ $item->id }}">{{ $item->nama }}</option>
-
-                                                                                    @endforeach
-                                                                                  </select>
+                                                                                    <select name=""
+                                                                                        class="form-control"
+                                                                                        id=""
+                                                                                        wire:model='form.kategori_id'>
+                                                                                        <option value="">Pilih
+                                                                                            Kategori</option>
+                                                                                        @foreach ($kategori as $item)
+                                                                                            <option
+                                                                                                value="{{ $item->id }}">
+                                                                                                {{ $item->nama }}
+                                                                                            </option>
+                                                                                        @endforeach
+                                                                                    </select>
                                                                                     @error('form.kategori_id')
                                                                                         <span
                                                                                             class="form-text text-danger">{{ $message }}</span>
@@ -94,18 +100,25 @@
                                                                                 <label for=""
                                                                                     class="col-sm-4 col-form-label">Foto</label>
                                                                                 <div class="col-md-8">
-                                                                                    {{-- @if ($info['ktp'] != null)
-                                                                                        <img src="{{ asset('storage' . str_replace('public', '', $info['ktp'])) }}"
-                                                                                            style="max-width: 200px;">
-                                                                                    @endif --}}
+
                                                                                     <input type="file"
                                                                                         class="form-control"
-                                                                                        wire:model="path"
+                                                                                        wire:model="photo"
                                                                                         accept="image/png, image/gif, image/jpeg">
-                                                                                    @error('path')
+                                                                                    @error('photo')
                                                                                         <span
                                                                                             class="form-text text-danger">{{ $message }}</span>
                                                                                     @enderror
+
+                                                                                    @if ($photo)
+                                                                                        <img src="{{ $photo->temporaryUrl() }}"
+                                                                                            style="max-width: 250px;" class="mt-2">
+                                                                                    @endif
+
+                                                                                    @if ($form['path'] && !$photo)
+                                                                                        <img src="{{ asset('storage/' . $form['path']) }}"
+                                                                                            style="max-width: 250px;" class="mt-2">
+                                                                                    @endif
                                                                                 </div>
                                                                             </div>
                                                                         </div>

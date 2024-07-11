@@ -79,6 +79,11 @@ class User extends Component
 
     public function store()
     {
+        $this->validate([
+            'form.name' => 'required',
+            'form.email' => 'required|unique:users,email',
+        ]);
+
         $password = Str::random(8);
         $this->form['password'] = bcrypt($password);
         $this->form['telepon'] = $this->konversi_nomor($this->form['telepon']);

@@ -39,7 +39,7 @@
                                                                                 <div class="col-md-9">
                                                                                     <input type="file"
                                                                                         class="form-control"
-                                                                                        wire:model="path">
+                                                                                        wire:model="path" >
                                                                                     @error('path')
                                                                                         <span
                                                                                             class="form-text text-danger">{{ $message }}</span>
